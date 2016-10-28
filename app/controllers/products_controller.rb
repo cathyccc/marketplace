@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update_attributes(product_params)
-      redirect_to "products#index"
+      redirect_to products_url
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
   def delete
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to "products#index"
+    redirect_to products_url
   end
 
   private
