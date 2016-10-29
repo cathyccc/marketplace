@@ -1,9 +1,11 @@
 <h1>Marketplace</h1>
 
+<%= link_to "Create Item", new_product_path %>
+
 <ul>
   <% @products.each do |product| %>
     <li>
-      <%= product.name %>
+       <%= link_to product.name, product_path(product) %>
     </li>
   <% end %>
 </ul>
