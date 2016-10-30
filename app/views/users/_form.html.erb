@@ -1,15 +1,24 @@
 <%= form_for @user do |f| %>
+  <% if @user.errors.any?  %>
+    <%= pluralize(@user.errors.count,"error") prohibited this form from saving. %>
+    <ul>
+      <% @user.errors.each do |msg|%>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div>
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
   <div>
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
   <div>
     <%= f.label :password_confirmation %>
-    <%= f.text_field :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </div>
   <div>
     <%= f.submit %>
