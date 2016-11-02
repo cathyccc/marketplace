@@ -19,7 +19,9 @@
     <% @product.reviews.each do |review| %>
       <p>
         <%= review.review_text %>
-        <%= link_to "delete", product_review_path(@product,review.id), method: :delete %>
+        <% if review.id != nil %>
+          <%= link_to "delete", [@product, review], method: :delete %>
+        <% end %>
       </p>
     <% end %>
 <% end %>
@@ -31,7 +33,7 @@
       <% if @review.errors.any? %>
         <%= pluralize(@review.errors.count,"error") %> prevented you from saving.
         <ul>
-          <% @review.errors.each do |msg| %>
+          <% @review.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
         </ul>

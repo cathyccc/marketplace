@@ -1,8 +1,8 @@
 <%= form_for @user do |f| %>
   <% if @user.errors.any?  %>
-    <%= pluralize(@user.errors.count,"error") prohibited this form from saving. %>
+    <%= pluralize(@user.errors.count,"error")%> prohibited this form from saving.
     <ul>
-      <% @user.errors.each do |msg|%>
+      <% @user.errors.full_messages.each do |msg|%>
         <li><%= msg %></li>
       <% end %>
     </ul>
