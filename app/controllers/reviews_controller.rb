@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
-      redirect_to product_path(params[:id]), notice: 'Review added.'
+      redirect_to product_path(params[:product_id]), notice: 'Review added.'
     else
       render :product
     end
