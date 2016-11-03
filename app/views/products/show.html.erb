@@ -2,7 +2,7 @@
 
 <p>
   Item Description: <%= @product.description %><br>
-  Price (cents): <%= @product.price_in_cents %>
+  Price: $ <%= '%.2f' % @product.convert_dollars %>
 </p>
 
 <% if current_user %>
