@@ -1,8 +1,8 @@
 class ReviewsController < ApplicationController
   before_action :load_product
+  before_action :ensure_logged_in, only: [:create,:destroy]
 
   def show
-    @review = Review.find(params[:id])
   end
 
   def create
@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
 
     if @review.save
-      redirect_to product_path(params[:product_id]), notice: 'Review added.'
+      redirect_to product_path(params[:product_id])
     else
       render :product
     end

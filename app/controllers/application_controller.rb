@@ -8,8 +8,10 @@ class ApplicationController < ActionController::Base
   # allows us to use current_user in views
   helper_method :current_user
 
-  # def authorize
-  #   redirect_to new_sessions_path unless current_user
-  # end
-
+  def ensure_logged_in
+    unless current_user
+      flash[:alert] = "Please sign in."
+      redirect_to new_sessions_path
+    end
+  end
 end

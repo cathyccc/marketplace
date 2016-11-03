@@ -9,6 +9,7 @@
   </head>
 
   <body>
+
     <% if current_user %>
       <%= link_to "Sign Out", sessions_path('current'), method: :delete %>
     <% else %>
@@ -17,6 +18,9 @@
     <% end %>
 
     <h1><%= link_to "Marketplace", root_path %></h1>
+
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
 
     <%= yield %>
   </body>
