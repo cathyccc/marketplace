@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'products#index'
 
   resource :sessions, only: [:new,:create,:destroy]
-  resource :users
+  resources :users
   resources :products do
     resources :reviews
   end
