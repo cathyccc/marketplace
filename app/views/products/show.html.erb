@@ -1,6 +1,7 @@
 <h2><%= @product.name %></h2>
 
 <p>
+  <%= image_tag @product.product_image.url if @product.product_image? %>
   Item Description: <%= @product.description %><br>
   Price: $ <%= '%.2f' % @product.convert_dollars %>
 </p>
