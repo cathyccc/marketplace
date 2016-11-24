@@ -1,28 +1,51 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Marketplace</title>
+    <title>marketplace</title>
     <%= csrf_meta_tags %>
+    <!-- enable touch zooming and ensure proper rendering on mobile devices  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/css?family=EB+Garamond" rel="stylesheet">
   </head>
 
   <body>
+    <nav class="navbar navbar-default navbar-fixed-top main-menu-bar">
+      <div class="container">
+          <span class = "logo">marketplace</span>
 
-    <% if current_user %>
-      <%= link_to "Profile", user_path('current') %>
-      <%= link_to "Sign Out", sessions_path('current'), method: :delete %>
-    <% else %>
-      <%= link_to "Sign In", new_sessions_path %>
-      <%= link_to "Sign Up", new_user_path %>
-    <% end %>
+          <button type="button" class="navbar-toggle collapsed hamburger-menu" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
 
-    <h1><%= link_to "Marketplace", root_path %></h1>
+          <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="main-menu"><%= link_to "Home", root_path%></li>
 
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
+                <% if current_user %>
+                  <li class="main-menu"><%= link_to "Profile", user_path('current')%></li>
+                  <li class="main-menu"><%= link_to "Sign Out", sessions_path('current'), method: :delete%></li>
+                <% else %>
+                  <li class="main-menu"><%= link_to "Sign In", new_sessions_path%></li>
+                  <li class="main-menu"><%= link_to "Sign Up", new_user_path%></li>
+                <% end %>
+            </ul>
+          </div>
 
-    <%= yield %>
+      </div>
+    </nav>
+
+    <div class = "container content-container">
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
