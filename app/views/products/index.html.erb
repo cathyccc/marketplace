@@ -1,20 +1,22 @@
-<ul>
-  <% product_counter = 0 %>
-  <% while product_counter < 5 %>
-    <% product_counter += 1 %>
-    <%= puts product_counter %>
-  <% end %>
+<div class = "container content-container">
+  <ul>
+    <% product_counter = 0 %>
+    <% while product_counter < 5 %>
+      <% product_counter += 1 %>
+      <%= puts product_counter %>
+    <% end %>
 
-  <% @products.each do |product| %>
-    <div class="row">
-      <li class="col-sm-6 col-md-4">
-         <%= link_to image_tag("#{product.product_image.thumb.url}"), product_path(product) %><br>
-         <%= product.name %>
-      </li>
-    </div>
-  <% end %>
-</ul>
+    <% @products.each do |product| %>
+      <div class="row">
+        <li class="col-sm-6 col-md-4">
+           <%= link_to image_tag("#{product.product_image.thumb.url}"), product_path(product) %><br>
+           <%= product.name %>
+        </li>
+      </div>
+    <% end %>
+  </ul>
 
-<% if current_user %>
-  <%= link_to "Create Item", new_product_path %>
-<% end %>
+  <% if current_user %>
+    <%= link_to "Create Item", new_product_path %>
+  <% end %>
+</div>
