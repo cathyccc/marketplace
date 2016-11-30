@@ -1,6 +1,13 @@
 // Place all the styles related to the main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html,
+body {
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+
 .logo{
   float: none;
   font-family: 'EB Garamond', serif;
@@ -15,6 +22,7 @@
 }
 
 .main-menu{
+  text-transform: uppercase;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -32,15 +40,41 @@
 .main-image{
   background: url("grocer.jpg")center center;
   width: 100%;
-  height: 100%;
+  height: 70%;
   background-size: cover;
   overflow: hidden;
-  height: 32em;
   margin-bottom: 0px;
+  flex: 0 0 auto;
 }
 
-.main-select{
+.main-bottom-nav{
+  flex-direction: column;
+  flex: 1;
   background-color: #FF3B3F;
   color: white;
+}
+
+.main-bottom-select{
   text-align: center;
+  align-self: center;
+  height: 30%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+@media (min-width:768px){
+  .main-bottom-nav{
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    display: flex;
+    background-color: #FF3B3F;
+    color: white;
+  }
+
+  .main-bottom-select{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
