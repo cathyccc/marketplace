@@ -4,24 +4,30 @@
 </div>
 
 <div class="main-bottom-nav">
-  <button id="nav-bottom-1">
-    <div class = "bottom-nav-title">SHOP</div>
-    <div class="main-bottom-icon">
-      <i class="fa fa-shopping-basket fa-2x" aria-hidden="true"></i>
+  <%= link_to products_path do %>
+    <div id="nav-bottom-1">
+      <div class = "bottom-nav-title">SHOP</div>
+      <div class="main-bottom-icon">
+        <i class="fa fa-shopping-basket fa-2x" aria-hidden="true"></i>
+      </div>
     </div>
-  </button>
+  <% end %>
 
-  <button id="nav-bottom-2">
-    <div class = "bottom-nav-title">JOIN</div>
-    <div class="main-bottom-icon">
-      <i class="fa fa-child fa-2x" aria-hidden="true"></i>
+  <%= link_to products_path do %>
+    <div id="nav-bottom-2">
+      <div class = "bottom-nav-title">JOIN</div>
+      <div class="main-bottom-icon">
+        <i class="fa fa-child fa-2x" aria-hidden="true"></i>
+      </div>
     </div>
-  </button>
+  <% end %>
 
-  <button id="nav-bottom-3">
-    <div class = "bottom-nav-title">ABOUT</div>
-    <div class="main-bottom-icon">
-      <i class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i>
+  <%= link_to products_path do %>
+    <div id="nav-bottom-3">
+      <div class = "bottom-nav-title">ABOUT</div>
+      <div class="main-bottom-icon">
+        <i class="fa fa-newspaper-o fa-2x" aria-hidden="true"></i>
+      </div>
     </div>
-  </button>
+  <% end %>
 </div>

@@ -54,24 +54,29 @@ body {
   justify-content: center;
 }
 
-.main-bottom-nav button{
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2em;
-    width: 100%;
-    flex: 1;
-    background-color: white;
-    color: #FF3B3F;
-    border-style: solid;
-    border-width: 0px;
-    flex-direction: row;
+.main-bottom-nav a{
+  width: 100%;
+  flex: 1;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  background-color: white;
+  color: #FF3B3F;
+  border-style: solid;
+  border-width: 0px;
+  text-decoration: none;
 }
 
-.main-bottom-nav button:hover{
-  // background-color: #232227;
+.main-bottom-nav a:hover{
   background-color: #e53538;
   color: white;
 }
 
+// remove icon on smaller displays
 .main-bottom-icon{
   display: none;
 }
@@ -85,7 +90,7 @@ body {
     flex-direction: row;
   }
 
-  .main-bottom-nav button{
+  .main-bottom-nav a{
     width: 33.333%;
   }
 
