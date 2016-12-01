@@ -76,6 +76,10 @@ body {
   display: none;
 }
 
+.bottom-nav-title{
+  padding-bottom: 0;
+}
+
 @media (min-width:768px){
   .main-bottom-nav{
     flex-direction: row;
@@ -87,5 +91,9 @@ body {
 
   .main-bottom-icon{
     display: inline-block;
+  }
+
+  .bottom-nav-title{
+    padding-bottom: 0.3em;
   }
 }
