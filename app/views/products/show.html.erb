@@ -1,48 +1,52 @@
-<h2><%= @product.name %></h2>
+<div class = "content-container">
+  <div class = "container">
+    <h2><%= @product.name %></h2>
 
-<p>
-  <%= image_tag @product.product_image.url if @product.product_image? %><br>
-  Item Description: <%= @product.description %><br>
-  Price: $ <%= '%.2f' % @product.convert_dollars %>
-</p>
+    <p>
+      <%= image_tag @product.product_image.url if @product.product_image? %><br>
+      Item Description: <%= @product.description %><br>
+      Price: $ <%= '%.2f' % @product.convert_dollars %>
+    </p>
 
-<% if current_user %>
-  <div>
-    <%= link_to 'Edit', edit_product_path %> |
-    <%= link_to 'Delete', product_path, data: {confirm: "Are you sure you want to remove this item?"}, method: :delete %>
-  </div>
-<% end %>
-
-<h3>Reviews</h3>
-<% if @product.reviews.count == 0 %>
-  <p><em>There are currently no reviews.</em></p>
-<% else %>
-    <% @product.reviews.each do |review| %>
-      <p>
-        <%= review.review_text %>
-        <% if review.id != nil %>
-          <%= link_to "delete", [@product, review], method: :delete %>
-        <% end %>
-      </p>
+    <% if current_user %>
+      <div>
+        <%= link_to 'Edit', edit_product_path %> |
+        <%= link_to 'Delete', product_path, data: {confirm: "Are you sure you want to remove this item?"}, method: :delete %>
+      </div>
     <% end %>
-<% end %>
 
-<div>
-  <%= form_for ([@product,@review]) do |f| %>
-
-    <% if @review.errors.any? %>
-      <%= pluralize(@review.errors.count,"error") %> prevented you from saving.
-      <ul>
-        <% @review.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+    <h3>Reviews</h3>
+    <% if @product.reviews.count == 0 %>
+      <p><em>There are currently no reviews.</em></p>
+    <% else %>
+        <% @product.reviews.each do |review| %>
+          <p>
+            <%= review.review_text %>
+            <% if review.id != nil %>
+              <%= link_to "delete", [@product, review], method: :delete %>
+            <% end %>
+          </p>
         <% end %>
-      </ul>
     <% end %>
 
     <div>
-      <%= f.label :review_text %><br>
-      <%= f.text_area :review_text %><br>
-      <%= f.submit "Submit Review" %>
+      <%= form_for ([@product,@review]) do |f| %>
+
+        <% if @review.errors.any? %>
+          <%= pluralize(@review.errors.count,"error") %> prevented you from saving.
+          <ul>
+            <% @review.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
+        <div>
+          <%= f.label :review_text %><br>
+          <%= f.text_area :review_text %><br>
+          <%= f.submit "Submit Review" %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>
