@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'main#index'
 
+  get 'about' => 'main#about'
+
   resource :sessions, only: [:new,:create,:destroy]
   resources :users
   resources :products do
