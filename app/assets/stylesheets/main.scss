@@ -3,9 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 html,
 body {
-  height:100%;
-  display:flex;
-  flex-direction:column;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo{
@@ -85,7 +85,51 @@ body {
   padding-bottom: 0;
 }
 
+.about{
+  display: inline-block;
+}
+
+.about-image-container{
+  overflow: hidden;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.about-image{
+  width: 100%;
+}
+
+.about-content-container{
+  padding: 3em;
+  display:flex;
+  flex: 1;
+}
+
+.about-content{
+  width: 85%;
+  margin: auto;
+}
+
+.about-content h3{
+  font-family: 'Oswald', sans-serif;
+  color: #FF3B3F;
+  font-size: 2.3em;
+  padding-bottom: 0.7em;
+}
+
+.about-content p{
+  font-family: 'Open Sans', sans-serif;
+  color: #606467;
+  font-size: 1.05em;
+  line-height: 1.7em;
+  padding-top: 0.7em;
+}
+
 @media (min-width:768px){
+  .content-container{
+    overflow: hidden;
+  }
+
   .main-bottom-nav{
     flex-direction: row;
   }
@@ -100,5 +144,9 @@ body {
 
   .bottom-nav-title{
     padding-bottom: 0.3em;
+  }
+
+  .about-content h3{
+    padding-top: 0.5em;
   }
 }
