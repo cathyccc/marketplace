@@ -1,4 +1,14 @@
 <%= form_for @product do |f| %>
+
+  <% if @product.errors.any? %>
+    <%= pluralize(@product.errors.count,"error") %> prevented you from saving.
+    <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
