@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :current_user
   def index
     @products = Product.all
   end
@@ -16,6 +17,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.owner = current_user
     if @product.save
       redirect_to products_url
     else
