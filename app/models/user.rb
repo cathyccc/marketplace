@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :reviews
+  has_many :owned_products, class_name: "product"
   has_many :products, through: :reviews
 
   has_secure_password
