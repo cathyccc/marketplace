@@ -13,13 +13,24 @@
     </div>
   <% end %>
 
-  <%= link_to new_user_path do %>
-    <div id="nav-bottom-2">
-      <div class = "bottom-nav-title">JOIN</div>
-      <div class="main-bottom-icon">
-        <i class="fa fa-child fa-2x" aria-hidden="true"></i>
+  <% if current_user %>
+    <%= link_to user_path(current_user) do %>
+      <div id="nav-bottom-2">
+        <div class = "bottom-nav-title">PROFILE</div>
+        <div class="main-bottom-icon">
+          <i class="fa fa-child fa-2x" aria-hidden="true"></i>
+        </div>
       </div>
-    </div>
+    <% end %>
+  <% else %>
+    <%= link_to new_user_path do %>
+      <div id="nav-bottom-2">
+        <div class = "bottom-nav-title">JOIN</div>
+        <div class="main-bottom-icon">
+          <i class="fa fa-child fa-2x" aria-hidden="true"></i>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 
   <%= link_to about_path do %>
