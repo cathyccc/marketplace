@@ -1,6 +1,9 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.search-items{
+  overflow: auto;
+}
 
 .product-thumb-indiv{
   text-align: center;
@@ -10,9 +13,19 @@
 
 .product-square{
   margin:auto;
-  width: 220px;
-  height: 220px;
+  border: 1px solid gray;
+}
+
+.product-square p{
+  margin: 1em;
 }
 
 .add-item{
+  background-color: #FF3B3F;
+  line-height: 252px;
+}
+
+.add-item a{
+  text-decoration: none;
+  color: white;
 }
