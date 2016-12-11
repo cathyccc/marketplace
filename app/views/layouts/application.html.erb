@@ -28,6 +28,7 @@
           <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="main-menu"><%= link_to "Home", root_path%></li>
+                <li class="main-menu"><%= link_to "Shop", products_path%></li>
 
                 <% if current_user %>
                   <li class="main-menu"><%= link_to "Profile", user_path('current')%></li>
