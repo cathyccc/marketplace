@@ -11,7 +11,7 @@
           <div class="product-square">
            <%= link_to image_tag("#{product.product_image.thumb.url}"), product_path(product) %><br>
            <p>
-             <b><%= product.name %></b><br>
+             <b><%= product.name.titleize %></b><br>
              $ <%= '%.2f' % product.convert_dollars %>
            </p>
          </div>
@@ -19,11 +19,14 @@
       <% end %>
 
     <div class = "col-xs-6 col-sm-4 col-md-3 col-lg-3 product-thumb-indiv">
-      <div class = "product-square add-item">
-        <% if current_user %>
-          <%= link_to "Create Item", new_product_path %>
+      <% if current_user %>
+        <%= link_to new_product_path do %>
+          <div class = "product-square add-item">
+            <i class="fa fa-plus fa-2x" aria-hidden="true"></i><br><br>
+            Create Item
+          </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

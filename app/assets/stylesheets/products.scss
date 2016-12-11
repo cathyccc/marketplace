@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .search-items{
+  font-family: 'Open Sans', sans-serif;
   overflow: auto;
 }
 
@@ -13,7 +14,12 @@
 
 .product-square{
   margin:auto;
-  border: 1px solid gray;
+  border: 1px solid #E0DFDF;
+}
+
+.product-square img{
+  width: 185px;
+  padding-top: 10px;
 }
 
 .product-square p{
@@ -22,10 +28,13 @@
 
 .add-item{
   background-color: #FF3B3F;
-  line-height: 252px;
+  padding-top: 92px;
+  height: 265px;
+  color: white;
+  text-transform: lowercase;
+  font-size: 1.1em;
 }
 
-.add-item a{
+.product-thumb-indiv a{
   text-decoration: none;
-  color: white;
 }
