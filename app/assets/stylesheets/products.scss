@@ -38,3 +38,20 @@
 .product-thumb-indiv a{
   text-decoration: none;
 }
+
+.item-desc{
+  overflow: auto;
+}
+
+.product-image img{
+  max-width: 350px;
+  max-height: 300px;
+  padding: 1.2em;
+  border: 1px solid #E0DFDF;
+}
+
+.item-desc-subcat{
+  padding-top: 1.5em;
+  font-size: 1.5em;
+  font-weight: 500;
+}

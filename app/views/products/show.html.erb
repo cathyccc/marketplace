@@ -1,52 +1,67 @@
-<div class = "content-container">
+<div class = "content-container item-desc">
   <div class = "container">
-    <h2><%= @product.name %></h2>
+    <div class = "container">
 
-    <p>
-      <%= image_tag @product.product_image.url if @product.product_image? %><br>
-      Item Description: <%= @product.description %><br>
-      Price: $ <%= '%.2f' % @product.convert_dollars %>
-    </p>
+      <h2 class = "col-sm-12 col-md-12 item-name"><%= @product.name.titleize %></h2>
 
-    <% if current_user %>
-      <div>
-        <%= link_to 'Edit', edit_product_path %> |
-        <%= link_to 'Delete', product_path, data: {confirm: "Are you sure you want to remove this item?"}, method: :delete %>
+      <div class = "col-sm-7 col-md-5 product-image">
+        <%= image_tag @product.product_image.url if @product.product_image? %><br>
       </div>
-    <% end %>
 
-    <h3>Reviews</h3>
-    <% if @product.reviews.count == 0 %>
-      <p><em>There are currently no reviews.</em></p>
-    <% else %>
-        <% @product.reviews.each do |review| %>
-          <p>
-            <%= review.review_text %>
-            <% if review.id != nil %>
-              <%= link_to "delete", [@product, review], method: :delete %>
-            <% end %>
-          </p>
-        <% end %>
-    <% end %>
-
-    <div>
-      <%= form_for ([@product,@review]) do |f| %>
-
-        <% if @review.errors.any? %>
-          <%= pluralize(@review.errors.count,"error") %> prevented you from saving.
-          <ul>
-            <% @review.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        <% end %>
-
-        <div>
-          <%= f.label :review_text %><br>
-          <%= f.text_area :review_text %><br>
-          <%= f.submit "Submit Review" %>
+      <div class = "col-sm-5 col-md-7">
+        <div class = "item-desc-subcat">
+          Item Description:
         </div>
-      <% end %>
+        <%= @product.description %><br>
+
+        <div class = "item-desc-subcat price">
+          Price: $ <%= '%.2f' % @product.convert_dollars %>
+        </div>
+
+        <% if current_user %>
+          <div>
+            <%= link_to 'Edit', edit_product_path %> |
+            <%= link_to 'Delete', product_path, data: {confirm: "Are you sure you want to remove this item?"}, method: :delete %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class = "col-sm-12 col-md-12">
+        <h3>Reviews</h3>
+        <% if @product.reviews.count == 0 %>
+          <p><em>There are currently no reviews.</em></p>
+        <% else %>
+            <% @product.reviews.each do |review| %>
+              <p>
+                <%= review.review_text %>
+                <% if review.id != nil %>
+                  <%= link_to "delete", [@product, review], method: :delete %>
+                <% end %>
+              </p>
+            <% end %>
+        <% end %>
+
+        <div class = "form">
+          <%= form_for ([@product,@review]) do |f| %>
+
+            <% if @review.errors.any? %>
+              <%= pluralize(@review.errors.count,"error") %> prevented you from saving.
+              <ul>
+                <% @review.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            <% end %>
+
+            <div class = "review-textfield">
+              <%= f.label :review_text %><br>
+              <%= f.text_area :review_text %><br>
+              <%= f.submit "Submit Review" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
