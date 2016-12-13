@@ -21,9 +21,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(param[:id])
-    if @user.save
-      redirect_to root
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to root_path
     else
       render :edit
     end
@@ -36,6 +36,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email,:password,:password_confirmation)
+    params.require(:user).permit(:username,:email,:password,:password_confirmation)
   end
 end

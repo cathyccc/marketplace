@@ -1,8 +1,13 @@
 <div class = "content-container">
   <div class = "container">
     <h2>Profile</h2>
-    <p>
-      <%= @user.email %>
-    </p>
+
+    <h4>Username</h4>
+    <p><%= @user.username %></p>
+
+    <h4>Email</h4>
+    <p><%= @user.email %></p>
+
+    <%= link_to "Edit", edit_user_path(params[:id]) %>
   </div>
 </div>
