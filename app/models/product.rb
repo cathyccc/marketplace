@@ -11,4 +11,7 @@ class Product < ApplicationRecord
   def convert_dollars
     price_in_cents / 100.00
   end
+
+  def search_products
+  end
 end
