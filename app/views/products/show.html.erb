@@ -30,19 +30,19 @@
         <h3>Reviews</h3>
         <% if @product.reviews.count == 0 %>
           <p><em>There are currently no reviews.</em></p>
-        <% else %>
+        <% else%>
             <% @product.reviews.each do |review| %>
-              <p>
-                <%= review.review_text %>
+              <% if review.review_text != nil %>
+                <p>
+                  <%= review.review_text %><br>
 
-                <%= review.user_id %>
-                <% writer = review.user_id %>
-                <em>Reviewed by <%#= User.find(writer).username %></em>
-              
-                <% if review.id != nil && current_user && review.user_id == current_user.id %>
-                  <%= link_to "delete", [@product, review], method: :delete %>
-                <% end %>
-              </p>
+                  <em>Reviewed by <%= %></em><br>
+
+                  <% if review.id != nil && current_user && review.user_id == current_user.id %>
+                    <%= link_to "delete", [@product, review], method: :delete %>
+                  <% end %>
+                </p>
+              <% end %>
             <% end %>
         <% end %>
 
