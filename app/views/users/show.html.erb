@@ -1,14 +1,16 @@
 <div class = "content-container">
   <div class = "container">
-    <h2>Profile</h2>
+    <div class = "container">
+      <h2>Profile</h2>
 
-    <h4>Username</h4>
-    <p><%= @user.username %></p>
+      <h4>Username</h4>
+      <p><%= @user.username %></p>
 
-    <h4>Email</h4>
-    <p><%= @user.email %></p>
+      <h4>Email</h4>
+      <p><%= @user.email %></p>
 
-    <br>
-    <%= link_to "Edit", edit_user_path(params[:id]) %>
+      <br>
+      <%= link_to "Edit", edit_user_path(current_user) %>
+    </div>
   </div>
 </div>

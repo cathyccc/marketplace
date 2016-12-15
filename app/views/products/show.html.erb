@@ -34,7 +34,12 @@
             <% @product.reviews.each do |review| %>
               <p>
                 <%= review.review_text %>
-                <% if review.id != nil %>
+
+                <%= review.user_id %>
+                <% writer = review.user_id %>
+                <em>Reviewed by <%#= User.find(writer).username %></em>
+              
+                <% if review.id != nil && current_user && review.user_id == current_user.id %>
                   <%= link_to "delete", [@product, review], method: :delete %>
                 <% end %>
               </p>

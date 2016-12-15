@@ -32,6 +32,7 @@
 
                 <% if current_user %>
                   <li class="main-menu"><%= link_to "Profile", user_path('current')%></li>
+                  <li class="main-menu"><%= link_to "Cart", cart_path %></li>
                   <li class="main-menu"><%= link_to "Sign Out", sessions_path('current'), method: :delete%></li>
                 <% else %>
                   <li class="main-menu"><%= link_to "Sign In", new_sessions_path%></li>
