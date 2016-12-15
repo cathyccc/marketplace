@@ -28,15 +28,15 @@
 
       <div class = "col-sm-12 col-md-12">
         <h3>Reviews</h3>
-        <% if @product.reviews.count == 0 %>
+        <% if @reviews.count == 0 %>
           <p><em>There are currently no reviews.</em></p>
         <% else%>
-            <% @product.reviews.each do |review| %>
+            <% @reviews.each do |review| %>
               <% if review.review_text != nil %>
                 <p>
                   <%= review.review_text %><br>
 
-                  <em>Reviewed by <%= %></em><br>
+                  <em>Reviewed by <%= review.writer %> at <%= review.created_at.strftime("%b. %d %Y, %l:%M %p") %></em><br>
 
                   <% if review.id != nil && current_user && review.user_id == current_user.id %>
                     <%= link_to "delete", [@product, review], method: :delete %>

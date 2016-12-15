@@ -6,6 +6,10 @@ class Review < ApplicationRecord
 
   after_destroy :log_destroy_action
 
+  def writer
+    user.username
+  end
+
   def log_destroy_action
     puts "Article destroyed"
   end
