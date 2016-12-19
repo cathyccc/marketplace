@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(current_user)
+    @products = owned_products_list.order("created_at DESC")
   end
 
   def new
@@ -38,5 +39,9 @@ class UsersController < ApplicationController
   private
   def user_params
     params.require(:user).permit(:username,:email,:password,:password_confirmation)
+  end
+
+  def owned_products_list
+    Product.where("owner_id = ?", current_user)
   end
 end

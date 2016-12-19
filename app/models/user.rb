@@ -9,7 +9,4 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username,:email,:password,:password_confirmation, presence: true
 
-  def owned_products
-    Product.where("owner_id", current_user)
-  end
 end

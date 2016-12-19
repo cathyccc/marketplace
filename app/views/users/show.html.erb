@@ -9,6 +9,15 @@
       <h4>Email</h4>
       <p><%= @user.email %></p>
 
+      <h4>Owned Products</h4>
+      <% @products.each do |item|%>
+        <div>
+          <%= item.name %>
+          <!-- owner_id used for testing -->
+          <%= item.owner_id %>
+        </div>
+      <% end %>
+
       <br>
       <%= link_to "Edit", edit_user_path(current_user) %>
     </div>
