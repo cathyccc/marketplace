@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :reviews
-  has_many :owned_products, class_name: "Product"
+  has_many :owned_products, class_name: "Product", dependent: :destroy
   has_many :products, through: :reviews
 
   has_secure_password
@@ -8,4 +8,8 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   validates :email, uniqueness: true
   validates :username,:email,:password,:password_confirmation, presence: true
+
+  def owned_products
+    Product.where("owner_id", current_user)
+  end
 end
