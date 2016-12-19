@@ -73,6 +73,18 @@
 
 .no-search-results{
   padding-top: 1.5em;
+  text-align: center;
+}
+
+.no-search-add{
+  width: 60%;
+  height: 100px;
+  background-color: #e53538;
+  padding-top: 12px;
+  height: 50px;
+  color: white;
+  text-transform: lowercase;
+  font-size: 1.1em;
 }
 
 @media (min-width: 525px){

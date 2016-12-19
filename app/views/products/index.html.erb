@@ -11,32 +11,45 @@
 
     <% if @products.blank? %>
       <div class = "col-md-12 no-search-results">
-        Sorry, there are no products containing <em><%= params[:search] %></em>.
+        <p>
+          Sorry, there are no products containing <em><%= params[:search] %></em>.
+        </p>
+        <div class = "product-thumb-indiv">
+          <% if current_user %>
+            <%= link_to new_product_path do %>
+              <div class = "product-square no-search-add">
+                <i class="fa fa-plus" aria-hidden="true"></i> &nbsp
+                Create Item
+              </div>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-    <% end %>
 
-    <% @products.each do |product| %>
-      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 product-thumb-indiv">
-        <div class="product-square">
-         <%= link_to image_tag("#{product.product_image.thumb.url}"), product_path(product) %><br>
-         <p>
-           <b><%= product.name.titleize %></b><br>
-           $ <%= '%.2f' % product.convert_dollars %>
-         </p>
-       </div>
-      </div>
-    <% end %>
-
-    <div class = "col-xs-6 col-sm-4 col-md-3 col-lg-3 product-thumb-indiv">
-      <% if current_user %>
-        <%= link_to new_product_path do %>
-          <div class = "product-square add-item">
-            <i class="fa fa-plus fa-2x" aria-hidden="true"></i><br><br>
-            Create Item
-          </div>
-        <% end %>
+    <% else %>
+      <% @products.each do |product| %>
+        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-3 product-thumb-indiv">
+          <div class="product-square">
+           <%= link_to image_tag("#{product.product_image.thumb.url}"), product_path(product) %><br>
+           <p>
+             <b><%= product.name.titleize %></b><br>
+             $ <%= '%.2f' % product.convert_dollars %>
+           </p>
+         </div>
+        </div>
       <% end %>
-    </div>
+
+      <div class = "col-xs-6 col-sm-4 col-md-3 col-lg-3 product-thumb-indiv">
+        <% if current_user %>
+          <%= link_to new_product_path do %>
+            <div class = "product-square add-item">
+              <i class="fa fa-plus fa-2x" aria-hidden="true"></i><br><br>
+              Create Item
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
 
   </div>
 </div>
