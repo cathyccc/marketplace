@@ -3,16 +3,15 @@
 
     <div class = "search-form col-md-12">
       <%= form_tag(products_path, method: "get", id: "search-form") do %>
-        <!-- id : 'q' ; name: 'q'-->
-        <%= text_field_tag :search, params[:search], placeholder: "Search Products"  %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
         <!-- have :name nil makes url nicer -->
-        <%= submit_tag "Search", :name => nil %>
+        <%= submit_tag "Search", class: "search-button", :name => nil %>
       <% end %>
     </div>
 
     <% if @products.blank? %>
-      <div class = "col-md-12">
-        Sorry, there are no recipes containing <%= params[:search] %>.
+      <div class = "col-md-12 no-search-results">
+        Sorry, there are no products containing <em><%= params[:search] %></em>.
       </div>
     <% end %>
 

@@ -13,6 +13,7 @@ class Product < ApplicationRecord
   end
 
   def self.search(search)
-    where("name LIKE ? OR description LIKE ?", "%#{search}%", "%#{search}%")
+    # same as 'Product.where(same as below)'
+    where("name LIKE ?", "%#{search}%")
   end
 end
