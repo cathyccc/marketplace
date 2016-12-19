@@ -2,6 +2,11 @@ class ProductsController < ApplicationController
   before_action :current_user
   def index
     @products = Product.all
+    if params[:search]
+      @products = Product.search(params[:search]).order("created_at DESC")
+    else
+      @products = Product.order("created_at DESC")
+    end
   end
 
   def show

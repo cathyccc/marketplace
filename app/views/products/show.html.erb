@@ -36,7 +36,7 @@
                 <p>
                   <%= review.review_text %><br>
 
-                  <em>Reviewed by <%= review.writer %> at <%= review.created_at.strftime("%b. %d %Y, %l:%M %p") %></em><br>
+                  <em>Reviewed by <%= review.writer %> at <%= review.created_at.strftime("%b.%d, %Y" + " at " + "%l:%M %p") %></em><br>
 
                   <% if review.id != nil && current_user && review.user_id == current_user.id %>
                     <%= link_to "delete", [@product, review], method: :delete %>

@@ -18,8 +18,8 @@
 }
 
 .product-square img{
-  width: 185px;
-  padding-top: 10px;
+  width: 91%;
+  padding-top: 7px;
 }
 
 .product-square p{
@@ -54,4 +54,21 @@
   padding-top: 1.5em;
   font-size: 1.5em;
   font-weight: 500;
+}
+
+.search-form{
+  margin-top: 20px;
+  text-align: center;
+}
+
+#search{
+  width: 70%;
+  margin-right: 0.5em;
+}
+
+@media (min-width: 525px){
+  .product-square img{
+    width: 185px;
+    padding-top: 10px;
+  }
 }
