@@ -9,10 +9,27 @@
       <% end %>
     </div>
 
-    <% if @products.blank? %>
+    <% if @products.blank? && @products.count > 0%>
       <div class = "col-md-12 no-search-results">
         <p>
           Sorry, there are no products containing <em><%= params[:search] %></em>.
+        </p>
+        <div class = "product-thumb-indiv">
+          <% if current_user %>
+            <%= link_to new_product_path do %>
+              <div class = "product-square no-search-add">
+                <i class="fa fa-plus" aria-hidden="true"></i> &nbsp
+                Create Item
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+
+    <% elsif @products.blank? && @products.count == 0%>
+      <div class = "col-md-12 no-search-results">
+        <p>
+          There are currently no items in the marketplace.
         </p>
         <div class = "product-thumb-indiv">
           <% if current_user %>
