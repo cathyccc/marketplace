@@ -18,6 +18,10 @@
           Price: $ <%= '%.2f' % @product.convert_dollars %>
         </div>
 
+        <div class = "add-cart">
+          <%= button_to "Add to Cart", action: 'new' %>
+        </div>
+
         <% if current_user && @product.owner_id == current_user.id%>
           <div>
             <%= link_to 'Edit', edit_product_path %> |
