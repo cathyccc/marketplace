@@ -11,7 +11,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to products_path, notice: "Account successfully created."
+      session[:user_id] = @user.id
+      redirect_to root_path
     else
       render :new
     end
