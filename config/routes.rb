@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'about' => 'main#about'
 
-  get 'cart' => 'purchases#index'
+  get 'cart' => 'purchases#show'
 
   resource :sessions, only: [:new,:create,:destroy]
   resources :users
