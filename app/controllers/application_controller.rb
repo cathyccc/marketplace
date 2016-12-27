@@ -5,10 +5,6 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
-  # def current_cart
-  #   @current_cart ||= Cart.find(session[:cart_id]) if session[:cart_id]
-  # end
-
   # allows us to use current_user in views
   helper_method :current_user
 

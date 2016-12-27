@@ -11,7 +11,4 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :username,:email,:password,:password_confirmation, presence: true
 
-  def create_cart
-  end
-
 end
