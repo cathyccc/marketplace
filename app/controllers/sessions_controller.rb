@@ -1,7 +1,4 @@
 class SessionsController < ApplicationController
-  def new
-  end
-
   def create
     # checks if user exists
     user = User.find_by(email:params[:email])
@@ -18,6 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    # session[:cart_id] = nil
     redirect_to root_path, notice: "User logged out."
   end
 end
