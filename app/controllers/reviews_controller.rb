@@ -26,10 +26,4 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:review_text,:product_id)
   end
-
-  # retrieve product_id from query params
-  def load_product
-    @product = Product.find(params[:product_id])
-  end
-
 end
