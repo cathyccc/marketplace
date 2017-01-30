@@ -1,0 +1,17 @@
+<div class = "content-container">
+  <div class = "container">
+    <div class = "container">
+      <h2>Your Cart</h2>
+
+      <ul>
+        <% @cart_products.each do |item| %>
+          <% product = Product.find(item.product_id) %>
+          <li>
+            <%= product.name %>
+          </li>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+</div>

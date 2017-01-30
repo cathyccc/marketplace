@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>marketplace</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
     <%= csrf_meta_tags %>
     <!-- enable touch zooming and ensure proper rendering on mobile devices  -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,7 +33,9 @@
 
                 <% if current_user %>
                   <li class="main-menu"><%= link_to "Profile", user_path('current')%></li>
-                  <li class="main-menu"><%= link_to "Cart", cart_path %></li>
+
+                  <li class="main-menu"><%= link_to "Cart", cart_path%></li>
+
                   <li class="main-menu"><%= link_to "Sign Out", sessions_path('current'), method: :delete%></li>
                 <% else %>
                   <li class="main-menu"><%= link_to "Sign In", new_sessions_path%></li>

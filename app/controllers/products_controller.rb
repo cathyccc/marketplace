@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :current_user
+  before_action :load_cart, only: [:show]
+
   def index
     @products = Product.all
     if params[:search]
@@ -12,8 +14,12 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
 
+    @cart_product = @product.cart_products.build
+
+    # list all reviews
     @reviews = @product.reviews.all
 
+    # add review
     # what you normally put in reviews#new
     @review = @product.reviews.build
   end

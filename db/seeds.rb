@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Status.delete_all
+Status.create! id: 1, description: "In Progress"
+Status.create! id: 2, description: "Complete"

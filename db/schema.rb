@@ -10,24 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161229163233) do
+ActiveRecord::Schema.define(version: 20170127202848) do
 
   create_table "cart_products", force: :cascade do |t|
-    t.integer  "cart_id"
     t.integer  "product_id"
+    t.integer  "cart_id"
+    t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "quantity"
     t.index ["cart_id"], name: "index_cart_products_on_cart_id"
     t.index ["product_id"], name: "index_cart_products_on_product_id"
   end
 
   create_table "carts", force: :cascade do |t|
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "status",     default: "active"
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_carts_on_user_id"
+    t.integer  "cart_owner_id"
+    t.integer  "status_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["cart_owner_id"], name: "index_carts_on_cart_owner_id"
+    t.index ["status_id"], name: "index_carts_on_status_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -49,6 +50,12 @@ ActiveRecord::Schema.define(version: 20161229163233) do
     t.datetime "updated_at",  null: false
     t.index ["product_id"], name: "index_reviews_on_product_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|
