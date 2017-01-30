@@ -37,10 +37,15 @@
           </table>
 
           <div class="cart-total">
-            Subtotal: &nbsp $<%= @subtotal / 100.00%>
-            <div><%= link_to "Confirm Checkout", cart_path, method: :patch %></div>
+            <div class="total-amount">
+              Subtotal: &nbsp $<%= @subtotal / 100.00%>
+            </div>
+            <div class="btn-checkout">
+              <%= link_to cart_path, method: :patch do %>
+                <div class="checkout-cart">Confirm Checkout </div>
+              <% end %>
+            </div>
           </div>
-
 
         <% end %>
 

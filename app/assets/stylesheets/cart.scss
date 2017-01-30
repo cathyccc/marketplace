@@ -26,17 +26,34 @@ table th, table td {
 }
 
 table th {
-  text-transform: uppercase;
   font-size: 14px;
-  letter-spacing: 1px;
 }
 
 .cart-total{
   text-align: right;
-  padding: 10px;
+  padding: 15px 20px;
   border-left: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   border-right: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+
+.total-amount{
+  display: block;
+  padding-bottom: 8px;
+}
+
+.checkout-cart{
+  margin-top: 5px;
+  display: inline-block;
+  background-color: #FF3B3F;
+  padding: 5px;
+}
+
+.btn-checkout a{
+  color: white;
+  text-decoration: none;
+  font-weight: 200;
 }
 
 @media screen and (max-width: 600px) {
@@ -57,7 +74,6 @@ table th {
 
     table td {
       display: block;
-      text-align: right;
       font-size: 13px;
       border-bottom: 1px dotted #ccc;
     }
@@ -71,5 +87,16 @@ table th {
       float: left;
       text-transform: uppercase;
       font-weight: bold;
+    }
+
+    .cart-total{
+      font-size: 1.2em;
+      text-align: center;
+      border-top: 1px solid #ccc;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .checkout-cart{
+      font-size: 0.85em;
     }
   }
