@@ -5,9 +5,9 @@
 
       <% if @cart_products.size == 0 %>
         <em>There are no items in your shopping cart. Please go <%= link_to "back", products_path %> to add some items to your cart.</em>
+
       <% else %>
-        <div class="table-responsive">
-          <table class="table table-striped">
+          <table>
             <thead>
               <tr>
                 <th></th>
@@ -18,24 +18,30 @@
               </tr>
             </thead>
 
-            <tbody class="cart-items-all">
-            <% @cart_products.each do |item| %>
-              <% product = Product.find(item.product_id) %>
-              <tr class = "cart-item-display">
-                <td class = "cart-item-image">
-                  <%= image_tag("#{product.product_image}") %>
-                </td>
-                <td>
-                  <%= product.name %>
-                </td>
-                <td><%= item.quantity %></td>
-                <td>$<%= product.price_in_cents / 100.00 %></td>
-                <td><%= link_to "Remove", product_cart_product_path(product.id, item.id), :confirm => 'Are you sure?', :method => :delete %></td>
-              </tr>
-            <% end %>
-          </tbody>
-        </div>
-      <% end %>
+            <tbody>
+              <% @cart_products.each do |item| %>
+                <% product = Product.find(item.product_id) %>
+                <tr class = "cart-item-display">
+                  <td class = "cart-item-image">
+                    <%= image_tag("#{product.product_image}") %>
+                  </td>
+                  <td>
+                    <%= product.name %>
+                  </td>
+                  <td><%= item.quantity %></td>
+                  <td>$<%= product.price_in_cents / 100.00 %></td>
+                  <td><%= link_to "Remove", product_cart_product_path(product.id, item.id), :confirm => 'Are you sure?', :method => :delete %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+
+          <div class="cart-total">
+            Subtotal: &nbsp $<%= @subtotal / 100.00%>
+          </div>
+
+
+        <% end %>
 
     </div>
   </div>
