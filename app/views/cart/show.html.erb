@@ -41,9 +41,30 @@
               Subtotal: &nbsp $<%= @subtotal / 100.00%>
             </div>
             <div class="btn-checkout">
-              <%= link_to cart_path, method: :patch do %>
+              <%= link_to "", data:{toggle:"modal", target:"#checkout-modal"} do %>
                 <div class="checkout-cart">Confirm Checkout </div>
               <% end %>
+            </div>
+          </div>
+
+          <div id="checkout-modal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Please confirm your order</h4>
+                </div>
+                <div class="modal-body">
+                  <p>
+                    You are about to checkout.
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <%= link_to cart_path, method: :patch, data:{dismiss: "modal"} do %>
+                    <div class="btn btn-default">Confirm</div>
+                  <% end %>
+                </div>
+              </div>
             </div>
           </div>
 
