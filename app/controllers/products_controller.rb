@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   before_action :current_user
-  before_action :load_cart, only: [:show]
 
   def index
     @products = Product.all
@@ -14,7 +13,10 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
 
-    @cart_product = @product.cart_products.build
+    if session[:user_id] != nil
+      load_cart
+      @cart_product = @product.cart_products.build
+    end
 
     # list all reviews
     @reviews = @product.reviews.all

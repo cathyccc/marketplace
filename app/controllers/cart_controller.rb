@@ -6,9 +6,6 @@ class CartController < ApplicationController
     @cart_products = @cart.cart_products.all.to_a
   end
 
-  def update
-  end
-
   def destroy
   end
 

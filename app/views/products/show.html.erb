@@ -18,11 +18,15 @@
           Price: $ <%= '%.2f' % @product.convert_dollars %>
         </div>
 
-        <div class= "item-desc-subcat add-to-cart">
+        <div class= "add-cart add-to-cart">
           <!-- remote: true means that js will control behavior (ie. Ajax submit) -->
-          <%= form_for ([@product,@cart_product]) do |f| %>
-            <%= f.number_field :quantity, value:1, min:1 %>
-            <%= f.submit "Add to Cart" %>
+          <% if session[:user_id] != nil && session[:user_id] != @product.owner_id%>
+            <%= form_for ([@product,@cart_product]) do |f| %>
+              <%= f.number_field :quantity, value:1, min:1, class: "quantity-cart" %>
+              <%= f.submit "Add to Cart" %>
+            <% end %>
+          <% elsif session[:user_id] == @product.owner_id%>
+            <em> Sorry, you cannot purchase your own item.</em>
           <% end %>
         </div>
 
