@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'about' => 'main#about'
 
   get 'cart' => 'cart#show'
+  patch 'cart' => 'cart#update' 
 
   resource :sessions, only: [:new,:create,:destroy]
   resources :users

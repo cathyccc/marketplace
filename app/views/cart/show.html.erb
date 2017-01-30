@@ -30,7 +30,7 @@
                   </td>
                   <td><%= item.quantity %></td>
                   <td>$<%= product.price_in_cents / 100.00 %></td>
-                  <td><%= link_to "Remove", product_cart_product_path(product.id, item.id), :confirm => 'Are you sure?', :method => :delete %></td>
+                  <td><%= link_to "remove", product_cart_product_path(product.id, item.id), method: :delete %></td>
                 </tr>
               <% end %>
             </tbody>
@@ -38,6 +38,7 @@
 
           <div class="cart-total">
             Subtotal: &nbsp $<%= @subtotal / 100.00%>
+            <div><%= link_to "Confirm Checkout", cart_path, method: :patch %></div>
           </div>
 
 
