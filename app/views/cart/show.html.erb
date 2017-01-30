@@ -3,14 +3,35 @@
     <div class = "container">
       <h2>Your Cart</h2>
 
-      <ul>
-        <% @cart_products.each do |item| %>
-          <% product = Product.find(item.product_id) %>
-          <li>
-            <%= product.name %>
-          </li>
-        <% end %>
-      </ul>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Unit Price</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody class="cart-items-all">
+          <% @cart_products.each do |item| %>
+            <% product = Product.find(item.product_id) %>
+            <tr class = "cart-item-display">
+              <td class = "cart-item-image">
+                <%= image_tag("#{product.product_image}") %>
+              </td>
+              <td>
+                <%= product.name %>
+              </td>
+              <td><%= item.quantity %></td>
+              <td>$<%= product.price_in_cents / 100.00 %></td>
+              <td><%= link_to "Remove", product_cart_product_path(product.id, item.id), :confirm => 'Are you sure?', :method => :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </div>
 
     </div>
   </div>

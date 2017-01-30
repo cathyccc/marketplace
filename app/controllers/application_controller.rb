@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   def load_cart
     # look for cart with current_user_id
     # if none exist, create new cart
-    @cart = Cart.find_by(cart_owner_id: @current_user.id, status_id: 1)
+    @cart = Cart.find_by(cart_owner_id: current_user.id, status_id: 1)
     if @cart == nil
       @cart = Cart.new
       @cart.cart_owner_id = current_user.id
