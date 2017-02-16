@@ -1,10 +1,4 @@
-if Rails.env.test? or Rails.env.development?
-  CarrierWave.configure do |config|
-    config.storage = :file
-    config.root = "#{Rails.root}/tmp"
-    config.cache_dir = "#{Rails.root}/tmp/images"
-  end
-else
+
   CarrierWave.configure do |config|                      # required
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
@@ -18,4 +12,3 @@ else
     config.storage = :fog
     config.fog_directory  = ENV["S3_BUCKET"]
   end
-end
