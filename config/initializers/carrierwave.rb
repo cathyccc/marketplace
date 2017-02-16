@@ -7,5 +7,5 @@ CarrierWave.configure do |config|                      # required
     # host:                  's3.example.com',             # optional, defaults to nil
     # endpoint:              'https://s3.example.com:8080' # optional, defaults to nil
   }
-  config.fog_directory  = ENV["S3_BUCKET"]                       # required
+  config.fog_directory  = ENV["S3_BUCKET"]
 end
