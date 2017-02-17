@@ -10,7 +10,6 @@ class Product < ApplicationRecord
   validates :price_in_cents, numericality: true, numericality: {greater_than: 0}
 
   mount_uploader :product_image, ProductImageUploader
-  attr_accessible :product_image
 
   def convert_dollars
     price_in_cents / 100.00
